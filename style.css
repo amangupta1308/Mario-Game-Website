@@ -1,0 +1,221 @@
+body, h1, h2, a, li{    /*we are resetting the values as the browser provides a default value*/
+    margin:0;
+    padding: 0;
+    font-family: arial;
+}
+header{
+    background-color:   red;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1;   /*all elements have z-index of 0 by default so giving z-index: 1 ensures it to be above all of them*/
+    /*if we dont give top: 0; left:0; then see that there is some space left so have to make it 0*/
+    top: 0;
+    left: 0;
+}
+header h1{
+    color: white;
+    border: 8px solid white;
+    padding: 6px 12px;
+    display: inline-block;
+    border-radius: 36px;
+}
+.banner{
+    position: relative;
+}
+.banner img{
+    max-width: 100%;
+}
+
+/* we used absolute position and not relative as in absolute, the element loses the space but not in relative */
+.banner .welcome{
+    background-color: #FEB614;
+    color: white;
+    padding: 30px;
+    position: absolute;
+    left: 0px;
+    /* dont give top in px as then when viewport's height changes, it will no loger look good */
+    top: 30%;  
+}
+.welcome{
+    height: 25%;
+    width: 35%; 
+}
+.banner h2{
+    font-size: 5vw;
+}
+
+.banner h2 span{
+    font-size: 1.3em;
+}
+
+nav{
+    background-color: #f4f4f4;
+    padding: 20px;
+    position: sticky;
+    top: 13%;   /*stick when position is 148px from top*/
+}
+
+nav ul{
+    white-space: nowrap;
+    max-width: 1200px;
+    margin: 0 auto;  /*Here we gave a margin of 0px in the top and bootom and auto in left and right which means that if there will be any extra space then it will be equally given in the left and right and thus the 4 will always be centralised lie for example the max-width is 122px and if the widht of the viewport is 2000px then 2000-1200=800 so 400 will be on left and 400 on right*/
+}
+
+nav li{
+    width: 25%;
+    font-size: 24px;
+    display: inline-block;
+}
+
+nav li a{
+    text-decoration: none;
+    color: #4b4b4b;
+}
+
+nav li a.join{
+    color: red;
+
+}
+
+main{ /* These look kinda contradictory but actually these are very effcient for a responsive webpage... if a viewport's width is 2000px then width of 1200px will act and if viewport's width is 800px then 1200px can't be there so max-width of 800px will act*/
+    max-width: 100%;
+    width: 1200px;
+    margin: 80px auto;
+    padding: 0px 40px;
+    box-sizing: border-box; /* Due to this, the padding also got included in the max-width and thus, when we decrease the viewprt's width, then also the cotent doest go iut of the viewport as earlier as there was padding, it got sacrifuced and tgus theh content overflown out of the vviewport*/
+}
+
+article h2{
+    color: #f63232;
+    font-size: 48px;
+    text-align: center;
+}
+article p{
+    font-size: 1.2em;
+    color: #4b4b4b;
+}
+/* To align both the images at the center*/
+.images{
+    text-align: center;
+    margin:80px 0px;
+    white-space: nowrap;
+}
+.images li{
+    display: inline-block;
+    width: 40%;
+    margin: 20px 5%;
+}
+
+.images li img{
+    max-width: 100%;
+}
+
+section.join{
+    background: #f4f4f4;
+    padding: 60px 20px;
+    text-align: center;
+    color: #4b4b4b;
+}
+.join h2{
+    font-size: 36px;
+}
+form input{
+    margin: 20px 0;
+    padding: 10px 20px;  /* The box became big in size*/
+    font-size: 20px;     /* The email thta will be written bill be of big font size now*/
+    border: 4px solid white;  /* Gave border of white colour as later on we'll add hover and other effets so t will look like nothing to any colour chnage*/
+    border-radius: 28px;
+}
+
+footer{
+    text-align: center;
+    padding: 10px;
+    color: white;
+    background: #f63232;
+}
+nav li a:hover{
+    padding:10px;
+    border: 6px dotted yellow;
+}
+nav li a.join:hover{
+    border: 6px dotted tomato;
+}
+.images li:hover{
+    position: relative;
+    top : -10px;
+}
+form input:focus{
+    border: 4px dotted #4b4b4b;
+    outline: none;    /* If there was an outline, then there would come a border of 1px solid (default color) along with the border wew gave so in short we removed that outline*/
+}
+form input:valid{
+    border: 4px solid #71d300;
+}
+form input:invalid{
+    border: 4px solid red;
+}
+/*Can style the first child i.e. Join the Cub here... This is just for rememberance
+nav li:first-child:hover{     
+    border: 6px dotted tomato;
+} 
+*/
+
+p::selection{
+    color:white;
+    background-color: tomato;
+}
+
+
+
+/* Responsive */
+/* These are just to learn */
+/* @media screen and (max-width: 1400px){
+    .banner .welcome h2{
+        font-size: 60px;
+    }
+    nav li{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 960px){
+    .banner .welcome h2{
+        font-size: 40px;
+    }
+} */
+@media screen and (max-width: 850px){
+    .banner .welcome{
+        position: relative;
+        text-align: center;
+        padding: 10px;
+    }
+    .banner .welcome br{
+        display: none;
+    }
+    .banner .welcome h2{
+        font-size: 25px;
+    }
+    .banner .welcome span{
+        font-size: 1em;
+    }
+    .images li{
+        width: 100%;
+        margin: 20px auto;
+        display: block;
+    }
+}
+@media screen and (max-width: 850px){
+    nav li{
+        font-size: 20px;
+        display: block;
+        width: 100%;
+        margin: 12px 0;
+    }
+    header{
+        position: relative;
+    }
+    nav{
+        top: 0;
+    }
+}
